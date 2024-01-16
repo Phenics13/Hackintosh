@@ -1,0 +1,80 @@
+## Equipment
+
+| ==Important== | ==Content== |
+| ---- | ---- |
+| CPU | i3 7100 |
+| iGPU | HD Graphics 630 |
+| Motherboard | ASUS Prime H270-Plus |
+| ==Additional== | ==Content== |
+| Display | Philips 245E 1440p |
+| Memory | Kingston DDR4 4GBx2 2400 MHz |
+| Drive | SSD Kingston A400 500GB |
+| Audio | Realtek ALC887 |
+| Network | Realtek RTL8111H |
+
+## Content
+1. Gathering Tools
+2. Making USB Installer
+3. Making EFI
+	1. SSDT
+	2. Kexts
+4. Post install
+
+---
+## Gathering Tools
+### GUI
+- Hackintool (for connectors)
+	- I selected 0x59120000 Profile-id for display (HDMI)
+- Mist (for downloading dmg)
+
+Whatevergreen profiles [here](https://github.com/acidanthera/WhateverGreen/blob/master/Manual/FAQ.IntelHD.en.md)
+### CLI
+- [ProperTree](https://github.com/corpnewt/ProperTree)
+- [MountEFI](https://github.com/corpnewt/MountEFI)
+- [GenSMBIOS](https://github.com/corpnewt/GenSMBIOS)
+- [OpenCore v0.9.7](https://github.com/acidanthera/OpenCorePkg/releases)
+
+## Making USB Installer
+apple site for specific [command](https://support.apple.com/en-us/101578)
+
+Requirements:
+- format into MacOS Extended (Journaled)
+- size >= 16 GB
+
+## Making EFI
+### SSDT
+Prebuilt SSDTs for specific processor: [SSDT](https://dortania.github.io/Getting-Started-With-ACPI/ssdt-methods/ssdt-prebuilt.html#intel-desktop-ssdts)
+
+For Kaby Lake:
+- [SSDT-PLUG-DRTNIA](https://github.com/dortania/Getting-Started-With-ACPI/blob/master/extra-files/compiled/SSDT-PLUG-DRTNIA.aml)
+- [SSDT-EC-USBX-DESKTOP](https://github.com/dortania/Getting-Started-With-ACPI/blob/master/extra-files/compiled/SSDT-EC-USBX-DESKTOP.aml)
+
+> Place into EFI/OC/ACPI
+### Kexts
+Gathering Kexts for specific hardware: [Kexts](https://dortania.github.io/OpenCore-Install-Guide/ktext.html#firmware-drivers)
+
+I included this Kexts:
+- Lilu.kext
+- Whatevergreen.kext
+- VirtualSMC.kext
+- RealtekRTL8111.kext
+- AppleALC.kext
+- USBInjectAll.kext
+- USBToolBox.kext
+- UTBDefault.kext
+
+> Place into EFI/OC/Kexts
+
+## Post install
+Programs:
+- [MonitorControl](https://github.com/MonitorControl/MonitorControl/releases) - for changing display brightness
+- [MOS](https://mos.caldis.me) - for smooth scroll
+- [OneKeyHiDPI](https://github.com/xzhih/one-key-hidpi) - for HiDPI resolution for display
+	- Enable HiDPI option
+	- Logo as default
+	- For 2056x1440 display
+- [gfxutil](https://github.com/acidanthera/gfxutil/releases) - for enabling audio
+
+I added beautiful ui for opencore boot process following this [instruction](https://dortania.github.io/OpenCore-Post-Install/cosmetic/gui.html)
+I enabled audio following this [instruction](https://dortania.github.io/OpenCore-Post-Install/universal/audio.html)
+
