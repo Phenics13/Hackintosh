@@ -14,6 +14,8 @@
 
 ## Content
 1. Gathering Tools
+	1. GUI
+	2. CLI
 2. Making USB Installer
 3. Making EFI
 	1. SSDT
@@ -34,6 +36,7 @@ Whatevergreen profiles [here](https://github.com/acidanthera/WhateverGreen/blob/
 - [GenSMBIOS](https://github.com/corpnewt/GenSMBIOS)
 - [OpenCore v0.9.7](https://github.com/acidanthera/OpenCorePkg/releases)
 
+---
 ## Making USB Installer
 apple site for specific [command](https://support.apple.com/en-us/101578)
 
@@ -41,6 +44,7 @@ Requirements:
 - format into MacOS Extended (Journaled)
 - size >= 16 GB
 
+---
 ## Making EFI
 ### SSDT
 Prebuilt SSDTs for specific processor: [SSDT](https://dortania.github.io/Getting-Started-With-ACPI/ssdt-methods/ssdt-prebuilt.html#intel-desktop-ssdts)
@@ -65,6 +69,7 @@ I included this Kexts:
 
 > Place into EFI/OC/Kexts
 
+---
 ## Post install
 Programs:
 - [MonitorControl](https://github.com/MonitorControl/MonitorControl/releases) - for changing display brightness
@@ -74,7 +79,24 @@ Programs:
 	- Logo as default
 	- For 2056x1440 display
 - [gfxutil](https://github.com/acidanthera/gfxutil/releases) - for enabling audio
+- [IOReg](https://github.com/khronokernel/IORegistryClone/blob/master/ioreg-302.zip) - for determining working display
 
 I added beautiful ui for opencore boot process following this [instruction](https://dortania.github.io/OpenCore-Post-Install/cosmetic/gui.html)
 I enabled audio following this [instruction](https://dortania.github.io/OpenCore-Post-Install/universal/audio.html)
 
+For HDMI enabling I was following this guides: 
+- [Patching Connector Types](https://dortania.github.io/OpenCore-Post-Install/gpu-patching/intel-patching/connector.html)
+- [Patching Bus IDs](https://dortania.github.io/OpenCore-Post-Install/gpu-patching/intel-patching/busid.html#parsing-the-framebuffer)
+- [General Framebuffer Patching Guide using Hackintool](https://www.tonymacx86.com/threads/guide-general-framebuffer-patching-guide-hdmi-black-screen-problem.269149/)
+
+I have picked the profile-id `0x59120000` (recommended) as my motherboard uses the same ports as Asus Prime H370-Plus (from the last guide):
+- Index 1, BusID 0x01, Type DP  
+- Index 2, BusID 0x02, Type HDMI (physical port is DVI)  
+- Index 3, BusID 0x04, Type HDMI
+
+For changing the size of the launchpad table I use this commands in terminal:
+```shell
+defaults write com.apple.dock springboard-columns -int 10
+defaults write com.apple.dock springboard-rows -int 7 
+killall Dock
+```
