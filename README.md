@@ -1,3 +1,9 @@
+# Hackintosh
+
+![screenshot](./img/sreenshot.png)
+
+![specs](./img/specs.png)
+
 ## Equipment
 
 | ==Important== | ==Content== |
