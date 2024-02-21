@@ -20,13 +20,15 @@
 
 ## Content
 1. [Gathering Tools](#Gathering_Tools)
-  2. [GUI](#GUI)
-  3. [CLI](#CLI)
-4. [Making USB Installer](#Making_USB_Installer)
-5. [Making EFI](#Making_EFI)
-  6. [SSDT](#SSDT)
-  7. [Kexts](#Kexts)
-8. [Post install](#Post_install)
+   1. [GUI](#GUI)
+   2. [CLI](#CLI)
+
+2. [Making USB Installer](#Making_USB_Installer)
+3. [Making EFI](#Making_EFI)
+   1. [SSDT](#SSDT)
+   2. [Kexts](#Kexts)
+
+4. [Post install](#Post_install)
    1. [Programs](#Programs)
    2. [Display](#Display)
    3. [Launchpad](#Launchpad)
