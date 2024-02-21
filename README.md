@@ -19,20 +19,20 @@
 | Network | Realtek RTL8111H |
 
 ## Content
-1. [Gathering Tools](#Gathering Tools)
+1. [Gathering Tools](#Gathering_Tools)
   2. [GUI](#GUI)
   3. [CLI](#CLI)
-4. [Making USB Installer](#Making USB Installer)
-5. [Making EFI](#Making EFI)
+4. [Making USB Installer](#Making_USB_Installer)
+5. [Making EFI](#Making_EFI)
   6. [SSDT](#SSDT)
   7. [Kexts](#Kexts)
-8. [Post install](#Post install)
+8. [Post install](#Post_install)
    1. [Programs](#Programs)
    2. [Display](#Display)
    3. [Launchpad](#Launchpad)
 
 
-## Gathering Tools
+## Gathering_Tools
 ### GUI
 - [Hackintool](https://github.com/benbaker76/Hackintool) (for connectors)
 	- I selected 0x59120000 Profile-id for display (HDMI)
@@ -45,14 +45,14 @@ Whatevergreen profiles [here](https://github.com/acidanthera/WhateverGreen/blob/
 - [GenSMBIOS](https://github.com/corpnewt/GenSMBIOS)
 - [OpenCore v0.9.7](https://github.com/acidanthera/OpenCorePkg/releases)
 
-## Making USB Installer
+## Making_USB_Installer
 apple site for specific [command](https://support.apple.com/en-us/101578)
 
 Requirements:
 - format into MacOS Extended (Journaled)
 - size >= 16 GB
 
-## Making EFI
+## Making_EFI
 ### SSDT
 Prebuilt SSDTs for specific processor: [SSDT](https://dortania.github.io/Getting-Started-With-ACPI/ssdt-methods/ssdt-prebuilt.html#intel-desktop-ssdts)
 
@@ -76,7 +76,7 @@ I included this Kexts:
 
 > Place into EFI/OC/Kexts
 
-## Post install
+## Post_install
 ### Programs:
 
 - [MonitorControl](https://github.com/MonitorControl/MonitorControl/releases) - for changing display brightness
