@@ -19,17 +19,17 @@
 | Network | Realtek RTL8111H |
 
 ## Content
-1. [Gathering Tools](##Gathering Tools)
-  1. [GUI](###GUI)
-  2. [CLI](###CLI)
-2. [Making USB Installer](##Making USB Installer)
-3. [Making EFI](##Making EFI)
-  1. [SSDT](###SSDT)
-  2. [Kexts](###Kexts)
-4. [Post install](##Post install)
-   1. [Programs](###Programs)
-   2. [Display](###Display)
-   3. [Launchpad](###Launchpad)
+1. [Gathering Tools](#Gathering Tools)
+  2. [GUI](#GUI)
+  3. [CLI](#CLI)
+4. [Making USB Installer](#Making USB Installer)
+5. [Making EFI](#Making EFI)
+  6. [SSDT](#SSDT)
+  7. [Kexts](#Kexts)
+8. [Post install](#Post install)
+   1. [Programs](#Programs)
+   2. [Display](#Display)
+   3. [Launchpad](#Launchpad)
 
 
 ## Gathering Tools
