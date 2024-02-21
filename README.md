@@ -13,21 +13,24 @@
 | Network | Realtek RTL8111H |
 
 ## Content
-1. Gathering Tools
-	1. GUI
-	2. CLI
-2. Making USB Installer
-3. Making EFI
-	1. SSDT
-	2. Kexts
-4. Post install
+1. [Gathering Tools](##Gathering Tools)
+  1. [GUI](###GUI)
+  2. [CLI](###CLI)
+2. [Making USB Installer](##Making USB Installer)
+3. [Making EFI](##Making EFI)
+  1. [SSDT](###SSDT)
+  2. [Kexts](###Kexts)
+4. [Post install](##Post install)
+   1. [Programs](###Programs)
+   2. [Display](###Display)
+   3. [Launchpad](###Launchpad)
 
----
+
 ## Gathering Tools
 ### GUI
-- Hackintool (for connectors)
+- [Hackintool](https://github.com/benbaker76/Hackintool) (for connectors)
 	- I selected 0x59120000 Profile-id for display (HDMI)
-- Mist (for downloading dmg)
+- [Mist](https://github.com/ninxsoft/Mist) (for downloading dmg)
 
 Whatevergreen profiles [here](https://github.com/acidanthera/WhateverGreen/blob/master/Manual/FAQ.IntelHD.en.md)
 ### CLI
@@ -36,7 +39,6 @@ Whatevergreen profiles [here](https://github.com/acidanthera/WhateverGreen/blob/
 - [GenSMBIOS](https://github.com/corpnewt/GenSMBIOS)
 - [OpenCore v0.9.7](https://github.com/acidanthera/OpenCorePkg/releases)
 
----
 ## Making USB Installer
 apple site for specific [command](https://support.apple.com/en-us/101578)
 
@@ -44,7 +46,6 @@ Requirements:
 - format into MacOS Extended (Journaled)
 - size >= 16 GB
 
----
 ## Making EFI
 ### SSDT
 Prebuilt SSDTs for specific processor: [SSDT](https://dortania.github.io/Getting-Started-With-ACPI/ssdt-methods/ssdt-prebuilt.html#intel-desktop-ssdts)
@@ -69,9 +70,9 @@ I included this Kexts:
 
 > Place into EFI/OC/Kexts
 
----
 ## Post install
-Programs:
+### Programs:
+
 - [MonitorControl](https://github.com/MonitorControl/MonitorControl/releases) - for changing display brightness
 - [MOS](https://mos.caldis.me) - for smooth scroll
 - [OneKeyHiDPI](https://github.com/xzhih/one-key-hidpi) - for HiDPI resolution for display
@@ -82,9 +83,13 @@ Programs:
 - [IOReg](https://github.com/khronokernel/IORegistryClone/blob/master/ioreg-302.zip) - for determining working display
 
 I added beautiful ui for opencore boot process following this [instruction](https://dortania.github.io/OpenCore-Post-Install/cosmetic/gui.html)
+
 I enabled audio following this [instruction](https://dortania.github.io/OpenCore-Post-Install/universal/audio.html)
 
+### Display
+
 For HDMI enabling I was following this guides: 
+
 - [Patching Connector Types](https://dortania.github.io/OpenCore-Post-Install/gpu-patching/intel-patching/connector.html)
 - [Patching Bus IDs](https://dortania.github.io/OpenCore-Post-Install/gpu-patching/intel-patching/busid.html#parsing-the-framebuffer)
 - [General Framebuffer Patching Guide using Hackintool](https://www.tonymacx86.com/threads/guide-general-framebuffer-patching-guide-hdmi-black-screen-problem.269149/)
@@ -94,7 +99,18 @@ I have picked the profile-id `0x59120000` (recommended) as my motherboard uses t
 - Index 2, BusID 0x02, Type HDMI (physical port is DVI)  
 - Index 3, BusID 0x04, Type HDMI
 
+Default size of screen set to `3840 × 2160`:
+
+![screen default size](./img/img_size.png)
+
+DPI option set to `default`:
+
+![DPI option](./img/img_size_option.png)
+
+### Launchpad
+
 For changing the size of the launchpad table I use this commands in terminal:
+
 ```shell
 defaults write com.apple.dock springboard-columns -int 10
 defaults write com.apple.dock springboard-rows -int 7 
